@@ -1,6 +1,6 @@
 class Wall {
   // visual attributes
-  float size = 40;
+  float size = 100;
 
   PVector position = new PVector();
   PVector velocity = new PVector(-3, 0);
@@ -24,4 +24,6 @@ class Wall {
     fill(#001f3f);
     rect(position.x, position.y, size, height - position.y);
   }
+  
+  
 }
