@@ -29,3 +29,8 @@ Templates, examples and projects for the IAD Programming Basics Course at ZHdK.
 	- create end screen with restart option
 	- create pause screen
 
+#### Input Versions
+
+- FlappyProcessing_input_1
+	- Collision detection is added for both simple circle and rectangular collisions
+	- A powerUp class is added, and a powerUp object now appears in the game  
