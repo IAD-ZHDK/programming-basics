@@ -34,3 +34,11 @@ Templates, examples and projects for the IAD Programming Basics Course at ZHdK.
 - FlappyProcessing_input_1
 	- Collision detection is added for both simple circle and rectangular collisions
 	- A powerUp class is added, and a powerUp object now appears in the game  
+
+- FlappyProcessing_input_2
+	- A state machine is added, and keypress event to change between states
+
+- FlappyProcessing_input_3
+	- The sound library for processing is added
+	- A background sound loop is added
+	- Two sound effects are added for collision events
