@@ -7,9 +7,17 @@ class Player {
 
   PVector velocity = new PVector();
   PVector position = new PVector(width / 5, height / 2);
+  
+  void reset() {
+    position = new PVector(width / 5, height / 2);
+  }
 
   void update() {
     position.add(velocity);
+    
+    if(position.y >= height) {
+      activeState = "Menu";
+    }
   }
 
   void display() {
