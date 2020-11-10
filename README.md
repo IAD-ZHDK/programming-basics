@@ -1,6 +1,8 @@
 # IAD ZHdK Programming Basics
 Templates, examples and projects for the IAD Programming Basics Course at ZHdK.
 
+Download the [Flappy Processing Template](https://github.com/IAD-ZHDK/programming-basics/releases/download/v1.0/FlappyProcessing.zip) here.
+
 ### Flappy Processing
 
 #### Features
@@ -30,6 +32,9 @@ Templates, examples and projects for the IAD Programming Basics Course at ZHdK.
 	- create pause screen
 
 #### Input Versions
+
+- FlappyProcessing_input_0
+	- PVector physics implementation is added
 
 - FlappyProcessing_input_1
 	- Collision detection is added for both simple circle and rectangular collisions
