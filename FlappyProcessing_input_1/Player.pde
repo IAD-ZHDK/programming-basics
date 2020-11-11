@@ -38,7 +38,7 @@ class Player {
 
     if (checkRectangle(x1, y1, size, size, 
       wall.x, wall.y, wall.size, height - wall.y)) {
-      println("wand wurde getroffen");
+      println("wall has been hit");
       bgColor = color(255, 0, 0);
     }
   }
@@ -46,7 +46,7 @@ class Player {
   void checkCollisionWithPowerUp(PowerUp powerUp) {
     if (checkCircle(x, y, size / 2, 
       powerUp.x, powerUp.y, powerUp.size / 2)) {
-      println("powerup wurde getroffen");
+      println("pwoer-up has been hit");
       bgColor = color(0, 255, 255);
     }
   }
