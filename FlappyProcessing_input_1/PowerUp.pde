@@ -13,7 +13,7 @@ class PowerUp {
     x += velocityX;
     y += velocityY;
     
-    // add wall again if it is out of screen
+    // add powerup again if it is out of screen
     if ((x + size) < 0)
     {
       resetPosition();
