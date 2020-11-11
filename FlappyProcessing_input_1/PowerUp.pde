@@ -1,25 +1,33 @@
 class PowerUp {
- 
-  float diameter = 50;
-  PVector position = new PVector();
-  PVector velocity = new PVector(-4, 0);
+  // visual attributes
+  float size = 100;
+  
+  float velocityX = -3;
+  float velocityY = 0;
+
+  float x = 0;
+  float y = 0;
+
 
   void update() {
-    position.add(velocity);
+    x += velocityX;
+    y += velocityY;
     
-    if ((position.x + diameter) < 0)
+    // add wall again if it is out of screen
+    if ((x + size) < 0)
     {
       resetPosition();
     }
   }
 
   void resetPosition() {
-    position = new PVector(width, random(height));
+    x = width;
+    y = random(0, height);
   }
 
   void display() {
     noStroke();
-    fill(#00FF00);
-    circle(position.x, position.y, diameter);
+    fill(255);
+    circle(x, y, size);
   }
 }

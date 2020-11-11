@@ -1,4 +1,5 @@
 Player player;
+
 Wall wall;
 
 void setup() {

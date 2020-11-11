@@ -1,68 +1,53 @@
 class Player {
   // visual attributes
-  float diameter = 40;
-  int Color = #DDDDDD;
-  // physical attributes
-  private float speedLimit = 5;
+  float size = 40;
 
-  PVector velocity = new PVector();
-  PVector position = new PVector(width / 5, height / 2);
+  // physical attributes
+  final float speedLimit = 5;
+
+  float velocityX = 0;
+  float velocityY = 0;
+
+  float x = width / 5;
+  float y = height / 2;
 
   void update() {
-    position.add(velocity);
+    x += velocityX;
+    y += velocityY;
   }
 
   void display() {
     noStroke();
-    fill(Color);
-    circle(position.x, position.y, diameter);
+    fill(#DDDDDD);
+    circle(x, y, size);
   }
 
   void accelerate(float accelerationX, float accelerationY) {
     // add acceleration
-    velocity.add(accelerationX, accelerationY);
+    velocityX += accelerationX;
+    velocityY += accelerationY;
 
-    // limit velocity
-    velocity.limit(speedLimit);
+    // limit velocity to max speed
+    velocityX = constrain(velocityX, -speedLimit, speedLimit);
+    velocityY = constrain(velocityY, -speedLimit, speedLimit);
   }
 
+  void checkCollisionWithWall(Wall wall) {
+    float x1 = x - (size * 0.5);
+    float y1 = y - (size * 0.5);
 
-  boolean checkCircleCollision(PowerUp object2) {
-    float X1 = position.x; 
-    float Y1 = position.y;
-    float R1 = diameter/2;
-
-    float X2 = object2.position.x;
-    float Y2 = object2.position.y;
-    float R2 = object2.diameter/2;
-
-    if (dist(X1, Y1, X2, Y2) <= R1+R2) {
-      Color = #00FF00;
-      println("Hit PowerUp");
-      return true;
+    if (checkRectangle(x1, y1, size, size, 
+      wall.x, wall.y, wall.size, height - wall.y)) {
+      println("wand wurde getroffen");
+      bgColor = color(255, 0, 0);
     }
-    return false;
-  };
+  }
 
-
-  boolean checkRectCollision(Wall object2) {
-    // collision detection for rectangle rectangle
-    float R1 = position.x+(diameter/2); // player right edge
-    float L1 = position.x-(diameter/2); // player left edge
-    float T1 = position.y-(diameter/2); // player top edge
-    float B1 = position.y+(diameter/2); // player bottom edge
-
-    float R2 = object2.position.x+(object2.W); // object 2 right edge
-    float L2 = object2.position.x; // object 2 left edge
-    float T2 = object2.position.y; // object 2 top edge
-    float B2 = object2.position.y+(object2.H); // object 2 bottom edge
-
-    if (R1 >= L2 && L1<=R2 && B1>= T2 && T1 <= B2) {
-      println("hit");
-      Color = #DD0000;
-      return true;
+  void checkCollisionWithPowerUp(PowerUp powerUp) {
+    if (checkCircle(x, y, size / 2, 
+      powerUp.x, powerUp.y, powerUp.size / 2)) {
+      println("powerup wurde getroffen");
+      bgColor = color(0, 255, 255);
     }
-    Color = #DDDDDD;
-    return false;
   }
 }
