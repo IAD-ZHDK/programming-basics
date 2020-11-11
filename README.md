@@ -34,16 +34,17 @@ Download the [Flappy Processing Template](https://github.com/IAD-ZHDK/programmin
 #### Input Versions
 
 - FlappyProcessing_input_0
-	- PVector physics implementation is added
+	
 
 - FlappyProcessing_input_1
 	- Collision detection is added for both simple circle and rectangular collisions
 	- A powerUp class is added, and a powerUp object now appears in the game  
 
 - FlappyProcessing_input_2
-	- A state machine is added, and keypress event to change between states
-
+	- PVector physics implementation is added
+	
 - FlappyProcessing_input_3
-	- The sound library for processing is added
-	- A background sound loop is added
-	- Two sound effects are added for collision events
+	- A state machine is added, and keypress event to change between states
+	
+- FlappyProcessing_input_3
+	- A new class is added that demonstrates the use of importet graphics and sprite animation using arrays. 
