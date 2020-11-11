@@ -1,6 +1,7 @@
 Player player; //<>//
 Wall wall1;
 Wall wall2;
+Elephant myElephant;
 
 PowerUp powerUp;
 
@@ -21,6 +22,8 @@ void setup() {
   wall2.pos.x += 200;
 
   powerUp = new PowerUp();
+
+  myElephant = new Elephant();
 }
 
 void draw() {
@@ -49,6 +52,7 @@ void resetGame() {
   wall2.resetPosition();
   wall2.pos.x += 200;
   powerUp.resetPosition();
+  myElephant.resetPosition();
 }
 
 void runGameState() {
@@ -68,13 +72,15 @@ void runGameState() {
   wall1.update();
   wall2.update();
   powerUp.update();
-
+  myElephant.update();
   // display 
+  fill(0,255,255);
+  rect(0,myElephant.pos.y,width,200);
+  myElephant.display();
   player.display();
   wall1.display();
   wall2.display();
   powerUp.display();
-
   bgColor = #0074D9;
 }
 
