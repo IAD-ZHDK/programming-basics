@@ -4,18 +4,18 @@ class Player {
 
   // physical attributes
   final float speedLimit = 5;
-  PVector velocity = new PVector(0,0);
+  PVector velocity = new PVector(0, 0);
   PVector pos = new PVector(width / 5, height / 2);
- 
+
   void reset() {
-    velocity = new PVector(0,0);
+    velocity = new PVector(0, 0);
     pos = new PVector(width / 5, height / 2);
   }
 
   void update() {
-   pos.add(velocity);
-   
-    if(pos.y >= height) {
+    pos.add(velocity);
+
+    if (pos.y >= height) {
       activeState = "Menu";
     }
   }
@@ -41,6 +41,9 @@ class Player {
     if (checkRectangle(x1, y1, size, size, 
       wall.pos.x, wall.pos.y, wall.size, height - wall.pos.y)) {
       println("wand wurde getroffen");
+      if (!file[1].isPlaying()) {
+        file[1].play();
+      }
       bgColor = color(255, 0, 0);
     }
   }
@@ -49,6 +52,9 @@ class Player {
     if (checkCircle(pos.x, pos.y, size / 2, 
       powerUp.pos.x, powerUp.pos.y, powerUp.size / 2)) {
       println("powerup wurde getroffen");
+      if (!file[0].isPlaying()) {
+        file[0].play();
+      }
       bgColor = color(0, 255, 255);
     }
   }

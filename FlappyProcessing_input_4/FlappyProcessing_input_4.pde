@@ -1,4 +1,19 @@
-Player player; //<>//
+import processing.sound.*; //<>//
+
+SoundFile[] file;
+int numsounds = 3;
+// sound effects from:
+// https://freesound.org/people/Greenhourglass/sounds/159376/
+// https://freesound.org/people/Greenhourglass/sounds/159377/
+// Creative Commons CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
+
+// Background music from: 
+// Nicolas Drweski
+// https://freesound.org/people/nicolasdrweski/sounds/179684/
+// Creative Commons Attribution 3.0 Unported (CC BY 3.0)
+
+
+Player player;
 Wall wall1;
 Wall wall2;
 Elephant myElephant;
@@ -22,8 +37,14 @@ void setup() {
   wall2.pos.x += 200;
 
   powerUp = new PowerUp();
-
   myElephant = new Elephant();
+
+  // sound 
+  file = new SoundFile[numsounds];
+  for (int i = 0; i < numsounds; i++) {
+    file[i] = new SoundFile(this, ""+i+ ".wav");
+  }
+  file[2].loop(); // playBackground sound
 }
 
 void draw() {
@@ -74,8 +95,8 @@ void runGameState() {
   powerUp.update();
   myElephant.update();
   // display 
-  fill(0,255,255);
-  rect(0,myElephant.pos.y,width,200);
+  fill(0, 255, 255);
+  rect(0, myElephant.pos.y, width, 200);
   myElephant.display();
   player.display();
   wall1.display();
