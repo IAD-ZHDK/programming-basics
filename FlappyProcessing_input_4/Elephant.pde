@@ -13,7 +13,6 @@ class Elephant {
 
   void update() {
     pos.add(velocity);
-    // add wall again if it is out of screen
     if ((pos.x + imageList[0].width) < 0)
     {
       resetPosition();
